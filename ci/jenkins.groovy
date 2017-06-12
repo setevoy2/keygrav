@@ -27,3 +27,5 @@ def kuberDeploy () {
          */
     }
 }
+
+return this

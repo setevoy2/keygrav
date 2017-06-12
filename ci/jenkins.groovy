@@ -4,12 +4,13 @@ def dockerBuild () {
 
     stage ('Docker build') {
 
-        sh 'ls -l'
+		sh 'apt-get update && apt-get -y install php5 php5-gd php5-curl'
+	    sh '/usr/bin/php5 bin/grav install'
 
         withDockerRegistry(registry: [credentialsId: 'setevoy-docker-hub']){
-            docker.build("setevoy/keygrav:${env.BUILD_NUMBER}").push()
-        }
-    }
+       	    docker.build("setevoy/keygrav:${env.BUILD_NUMBER}").push()
+	    }
+	}
 }
 
 def kuberDeploy () {

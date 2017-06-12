@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: keygrav
-        image: setevoy/keygrav:3
+        image: setevoy/keygrav:16
         ports:
         - containerPort: 80
